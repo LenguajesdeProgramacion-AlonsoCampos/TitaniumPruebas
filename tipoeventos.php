@@ -13,7 +13,7 @@ $entretenumiento="Entretenimiento";
 
 
 //Estas 2 primeras consultas mandan a traer todos los eventos academica
-if($result = $db->query("SELECT idTipoEvento,tipoEvento, detallesEvento FROM TiposEventos WHERE tipoEvento='$academico'
+if($result = $db->query("SELECT idTipoEvento,tipoEvento, detallesEvento FROM TiposEventos WHERE tipoEvento='Academico'
     AND detallesEvento ='' ")) {
     while ($row=$result->fetch_assoc()) {
         $json[]=array(
@@ -35,6 +35,7 @@ if($result = $db->query("SELECT idTipoEvento,tipoEvento, detallesEvento FROM Tip
     }
 }
 $result->close();
+
 //Hasta aqui termina las 2 consultas de academica
 
 if($result = $db->query("SELECT idTipoEvento,tipoEvento, detallesEvento FROM TiposEventos WHERE tipoEvento='$cultural'
@@ -259,4 +260,4 @@ $result->close();
 header("Content-Type: text/json");
 echo json_encode(array( 'nombre'  =>   $json)); 
 $db->close(); 
-?>	
+?>  
